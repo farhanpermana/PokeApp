@@ -151,6 +151,7 @@
 		45219B6D29C1B39B006EFE17 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				459951FB29C3099500465445 /* Page 2 */,
 				45219B6E29C1B4C5006EFE17 /* Page 1 */,
 			);
 			path = Module;
@@ -232,6 +233,37 @@
 				45219B7C29C1B788006EFE17 /* PokeListCollectionCell.xib */,
 			);
 			path = PokeListCollectionCell;
+			sourceTree = "<group>";
+		};
+		459951FB29C3099500465445 /* Page 2 */ = {
+			isa = PBXGroup;
+			children = (
+				459951FE29C309B200465445 /* Model */,
+				459951FD29C309AC00465445 /* View */,
+				459951FC29C309A300465445 /* ViewModel */,
+			);
+			path = "Page 2";
+			sourceTree = "<group>";
+		};
+		459951FC29C309A300465445 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		459951FD29C309AC00465445 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		459951FE29C309B200465445 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

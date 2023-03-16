@@ -20,12 +20,21 @@ class PokeListViewController: UIViewController {
     
     private var data: PokeModel?
     
-    func setupTable() {
+    func setupLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: 300, height: 200)
-        
-        layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+//        layout.itemSize = CGSize(width: 300, height: 200)
+        layout.sectionInset = UIEdgeInsets(top: 8, left: 12, bottom: 8, right: 12)
+        layout.minimumInteritemSpacing = 12
+        let screenSize = self.view.bounds.size.width - layout.sectionInset.left -
+        layout.sectionInset.right - layout.minimumInteritemSpacing
+        layout.itemSize = CGSize(width: screenSize / 2.5, height: 200)
+//        layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+      return layout
+    }
+    
+    func registerCollection() {
+        collectionView.collectionViewLayout = setupLayout()
         collectionView.register(UINib(nibName: "PokeListCollectionCell", bundle: nil), forCellWithReuseIdentifier: PokeListCollectionCell.identifier)
         
         collectionView.delegate = self
@@ -34,7 +43,7 @@ class PokeListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       setupTable()
+        registerCollection()
         setupPokeApi()
     }
 
