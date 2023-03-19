@@ -78,6 +78,9 @@
                             <constraint firstItem="0qZ-vg-CfO" firstAttribute="top" secondItem="IxT-S1-glr" secondAttribute="top" id="imX-UT-iHE"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="detailTableView" destination="0qZ-vg-CfO" id="kLZ-J0-Kny"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2SH-lu-uFT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

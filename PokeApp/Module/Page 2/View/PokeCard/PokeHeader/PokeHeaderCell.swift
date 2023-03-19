@@ -11,6 +11,10 @@ class PokeHeaderCell: UITableViewCell {
     
     static let identifier = "PokeHeaderCell"
 
+    @IBOutlet weak var pokeName: UILabel!
+    
+    @IBOutlet weak var pokeHP: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

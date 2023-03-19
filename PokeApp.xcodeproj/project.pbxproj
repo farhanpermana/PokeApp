@@ -33,6 +33,7 @@
 		459951F829C2D4A700465445 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 459951F729C2D4A700465445 /* SDWebImage */; };
 		459951FA29C2D4A700465445 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 459951F929C2D4A700465445 /* SDWebImageMapKit */; };
 		4599520029C312C500465445 /* PokeDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459951FF29C312C500465445 /* PokeDetailModel.swift */; };
+		D7285BEF29C71EA100CF94B0 /* PokeDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7285BEE29C71EA100CF94B0 /* PokeDetailsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		454AB1B329C402160066C852 /* QuickAttackLabelTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickAttackLabelTableCell.xib; sourceTree = "<group>"; };
 		454AB1B629C4128B0066C852 /* PokeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeDetailViewModel.swift; sourceTree = "<group>"; };
 		459951FF29C312C500465445 /* PokeDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeDetailModel.swift; sourceTree = "<group>"; };
+		D7285BEE29C71EA100CF94B0 /* PokeDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeDetailsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				459951FF29C312C500465445 /* PokeDetailModel.swift */,
+				D7285BEE29C71EA100CF94B0 /* PokeDetailsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				45219B8229C1C666006EFE17 /* PokeListViewModel.swift in Sources */,
 				454AB1B729C4128B0066C852 /* PokeDetailViewModel.swift in Sources */,
 				454AB1B429C402160066C852 /* QuickAttackLabelTableCell.swift in Sources */,
+				D7285BEF29C71EA100CF94B0 /* PokeDetailsModel.swift in Sources */,
 				45219B3D29C1B2A9006EFE17 /* AppDelegate.swift in Sources */,
 				4599520029C312C500465445 /* PokeDetailModel.swift in Sources */,
 				45219B7D29C1B788006EFE17 /* PokeListCollectionCell.swift in Sources */,

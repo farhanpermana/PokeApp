@@ -37,6 +37,10 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="pokeHP" destination="WjG-pJ-osG" id="O36-PN-pjK"/>
+                <outlet property="pokeName" destination="6hM-IV-xCc" id="KKH-Yb-S7S"/>
+            </connections>
             <point key="canvasLocation" x="139" y="20"/>
         </tableViewCell>
     </objects>

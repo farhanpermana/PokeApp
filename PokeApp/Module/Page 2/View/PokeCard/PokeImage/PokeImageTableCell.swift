@@ -11,6 +11,11 @@ class PokeImageTableCell: UITableViewCell {
     
     static let identifier = "PokeImageTableCell"
 
+    @IBOutlet weak var bgView: UIView!
+    
+    
+    @IBOutlet weak var imgView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

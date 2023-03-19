@@ -17,14 +17,25 @@ class PokeDetailController: UIViewController {
     
     static let identifier = "PokeDetailController"
 
-    @IBOutlet weak var detailTable: UITableView!
+    @IBOutlet weak var detailTableView: UITableView!
     
     var listPoke: ResultModel?
     var detailUrl: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerCell()
 
+    }
+    
+    func registerCell() {
+        detailTableView.register(UINib(nibName: PokeHeaderCell.identifier, bundle: nil), forCellReuseIdentifier: PokeHeaderCell.identifier)
+        detailTableView.register(UINib(nibName: PokeImageTableCell.identifier, bundle: nil), forCellReuseIdentifier: PokeImageTableCell.identifier)
+        detailTableView.register(UINib(nibName: QuickAttackLabelTableCell.identifier, bundle: nil), forCellReuseIdentifier: QuickAttackLabelTableCell.identifier)
+        
+        
+        detailTableView.delegate = self
+        detailTableView.dataSource = self
     }
 
 
@@ -35,23 +46,42 @@ extension PokeDetailController: UITableViewDelegate, UITableViewDataSource {
         return 1
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let sections = sectionDetail(rawValue: indexPath.section)
+        switch sections {
+        case .header:
+            return 50
+        case .pokeImg:
+            return 200
+        case .attack:
+            return 100
+        default:
+            return 0
+        }
+    
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let sections = sectionDetail(rawValue: indexPath.section)
         switch sections {
         case .header:
-            guard let cell = detailTable.dequeueReusableCell(withIdentifier: PokeHeaderCell.identifier, for: indexPath) as? PokeHeaderCell else {
+            guard let cell = detailTableView.dequeueReusableCell(withIdentifier: PokeHeaderCell.identifier, for: indexPath) as? PokeHeaderCell else {
                 return UITableViewCell()
             }
             
             return cell
         case .pokeImg:
-            guard let cell = detailTable.dequeueReusableCell(withIdentifier: PokeImageTableCell.identifier, for: indexPath) as? PokeImageTableCell else {
+            guard let cell = detailTableView.dequeueReusableCell(withIdentifier: PokeImageTableCell.identifier, for: indexPath) as? PokeImageTableCell else {
                 return UITableViewCell()
             }
             
             return cell
         case .attack:
-            guard let cell = detailTable.dequeueReusableCell(withIdentifier: QuickAttackLabelTableCell.identifier, for: indexPath) as? QuickAttackLabelTableCell else {
+            guard let cell = detailTableView.dequeueReusableCell(withIdentifier: QuickAttackLabelTableCell.identifier, for: indexPath) as? QuickAttackLabelTableCell else {
                 return UITableViewCell()
             }
             
