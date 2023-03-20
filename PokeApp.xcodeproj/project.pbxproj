@@ -24,7 +24,6 @@
 		454AB1A629C3FBFD0066C852 /* PokeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454AB1A429C3FBFD0066C852 /* PokeHeaderCell.swift */; };
 		454AB1A729C3FBFD0066C852 /* PokeHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 454AB1A529C3FBFD0066C852 /* PokeHeaderCell.xib */; };
 		454AB1AA29C3FCAC0066C852 /* PokeDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454AB1A829C3FCAC0066C852 /* PokeDetailController.swift */; };
-		454AB1AB29C3FCAC0066C852 /* PokeDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 454AB1A929C3FCAC0066C852 /* PokeDetailController.xib */; };
 		454AB1AF29C400C60066C852 /* PokeImageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454AB1AD29C400C60066C852 /* PokeImageTableCell.swift */; };
 		454AB1B029C400C60066C852 /* PokeImageTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 454AB1AE29C400C60066C852 /* PokeImageTableCell.xib */; };
 		454AB1B429C402160066C852 /* QuickAttackLabelTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454AB1B229C402160066C852 /* QuickAttackLabelTableCell.swift */; };
@@ -75,7 +74,6 @@
 		454AB1A429C3FBFD0066C852 /* PokeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeHeaderCell.swift; sourceTree = "<group>"; };
 		454AB1A529C3FBFD0066C852 /* PokeHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokeHeaderCell.xib; sourceTree = "<group>"; };
 		454AB1A829C3FCAC0066C852 /* PokeDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeDetailController.swift; sourceTree = "<group>"; };
-		454AB1A929C3FCAC0066C852 /* PokeDetailController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokeDetailController.xib; sourceTree = "<group>"; };
 		454AB1AD29C400C60066C852 /* PokeImageTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeImageTableCell.swift; sourceTree = "<group>"; };
 		454AB1AE29C400C60066C852 /* PokeImageTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokeImageTableCell.xib; sourceTree = "<group>"; };
 		454AB1B229C402160066C852 /* QuickAttackLabelTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAttackLabelTableCell.swift; sourceTree = "<group>"; };
@@ -317,7 +315,6 @@
 			children = (
 				454AB1A229C3FA720066C852 /* PokeCard */,
 				454AB1A829C3FCAC0066C852 /* PokeDetailController.swift */,
-				454AB1A929C3FCAC0066C852 /* PokeDetailController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -443,7 +440,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				45219B4929C1B2AB006EFE17 /* LaunchScreen.storyboard in Resources */,
-				454AB1AB29C3FCAC0066C852 /* PokeDetailController.xib in Resources */,
 				454AB1B029C400C60066C852 /* PokeImageTableCell.xib in Resources */,
 				454AB1B529C402160066C852 /* QuickAttackLabelTableCell.xib in Resources */,
 				45219B4629C1B2AB006EFE17 /* Assets.xcassets in Resources */,
