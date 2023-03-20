@@ -32,9 +32,13 @@ struct ApiService: ApiServiceProtocol {
                 do {
                     let modelData = try JSONDecoder().decode(T.self, from: data)
                     completion(.success(modelData))
+                    
+                    print("success calling api")
                 }
                 catch let error {
                     completion(.failure(error))
+                    
+                    print("error calling api", error)
                 }
             }
         }.resume()

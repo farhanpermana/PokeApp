@@ -26,6 +26,7 @@ class PokeListCollectionCell: UICollectionViewCell {
         bgView.layer.backgroundColor = UIColor.white.cgColor
         bgView.layer.borderWidth = 1.0
         bgView.layer.borderColor = UIColor.black.cgColor
+        bgView.layer.cornerRadius = 8.0
         
     }
     

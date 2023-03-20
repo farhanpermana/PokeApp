@@ -10,20 +10,21 @@ import Foundation
 struct PokemonDetailsModel: Codable{
     let id: Int
     let name: String
-    let experience: Int
+//    let experience: Int
     let moves: [MoveElement]
     let sprites: Sprites
     let stats: [Stat]
     
     enum CodingKeys: String, CodingKey {
         case id, name, moves, sprites, stats
-        case experience = "base_experience"
+//        case experience = "base_experience"
     }
     
 }
 
 struct MoveElement: Codable {
     let move: StatClass
+    
 }
 
 struct StatClass: Codable {
@@ -47,4 +48,25 @@ struct Stat: Codable {
         case baseStat = "base_stat"
         case stat
     }
+}
+
+// moves details with effects
+struct MoveDetailsModel: Codable {
+    let accuracy: Int?
+    let power: Int?
+    let pp: Int
+    let type: StatClass
+    let effectEntries: [EffectEntry]
+    
+    
+    enum CodingKeys: String, CodingKey {
+        case accuracy, power, pp, type
+        case effectEntries = "effect_entries"
+    
+    }
+}
+
+struct EffectEntry: Codable {
+    let effect: String
+    let language: String
 }

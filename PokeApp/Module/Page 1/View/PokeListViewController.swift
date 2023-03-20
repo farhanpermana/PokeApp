@@ -10,6 +10,8 @@ import SDWebImage
 
 class PokeListViewController: UIViewController, moveToPokemonDetail {
     
+    static let identifier = "PokeListViewController"
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     var delegate: moveToPokemonDetail?
@@ -32,7 +34,7 @@ class PokeListViewController: UIViewController, moveToPokemonDetail {
         layout.minimumInteritemSpacing = 12
         let screenSize = self.view.bounds.size.width - layout.sectionInset.left -
         layout.sectionInset.right - layout.minimumInteritemSpacing
-        layout.itemSize = CGSize(width: screenSize / 2.5, height: 200)
+        layout.itemSize = CGSize(width: screenSize / 2.5, height: 180)
 //        layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
       return layout
     }

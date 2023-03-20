@@ -15,6 +15,8 @@ class QuickAttackLabelTableCell: UITableViewCell {
     
     @IBOutlet weak var attackValue: UILabel!
     
+    @IBOutlet weak var descAttack: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -11,7 +11,7 @@ enum sectionDetail: Int {
     case header = 0
     case pokeImg = 1
     case attack = 3
-    case desc
+    case desc = 4
 }
 
 class PokeDetailController: UIViewController {
@@ -48,7 +48,6 @@ class PokeDetailController: UIViewController {
     func setupDetailViewModel() {
         self.pokeDetailViewModel = PokeDetailViewModel(urlString: listPoke?.url ?? "", apiService: ApiService())
         
-        
         self.pokeDetailViewModel?.bindPokeData = { detailPokemon in
             if let detailPokemon = detailPokemon {
                 DispatchQueue.main.async {
@@ -82,7 +81,7 @@ extension PokeDetailController: UITableViewDelegate, UITableViewDataSource {
         case .pokeImg:
             return 200
         case .attack:
-            return 50
+            return 100
         default:
             return 0
         }
@@ -98,7 +97,8 @@ extension PokeDetailController: UITableViewDelegate, UITableViewDataSource {
             }
             
             cell.pokeName.text = detailPoke?.name
-            cell.pokeHP.text = "\(detailPoke?.experience ?? 0)"
+            // call model from basestat
+            cell.pokeHP.text = "\(detailPoke?.stats[0].baseStat ?? 0) HP"
             
             return cell
         case .pokeImg:
@@ -115,8 +115,9 @@ extension PokeDetailController: UITableViewDelegate, UITableViewDataSource {
             }
             
             cell.attackLabel.text = detailPoke?.moves[0].move.name
-            // show attackvalue from stat
-            cell.attackValue.text = "\(detailPoke?.stats[0].baseStat ?? 0)"
+          
+            cell.attackValue.text = "\(detailPoke?.stats[1].baseStat ?? 0)+"
+            
             
             return cell
         default:
