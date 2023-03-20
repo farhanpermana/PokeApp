@@ -18,6 +18,7 @@ class PokeListViewController: UIViewController, moveToPokemonDetail {
     var moveToPokemonDetailDelegate: moveToPokemonDetail?
     
     private var listPoke: PokeModel?
+    
     private var listResult: [ResultModel]?
     private var pokeDatas: [PokeModel]? = []
     
@@ -51,7 +52,7 @@ class PokeListViewController: UIViewController, moveToPokemonDetail {
         
         delegate = self
     }
-    // transition
+    // unused transition func (maybe)
     func moveToDetailPokemon(model: ResultModel) {
         let vc = PokeDetailController()
         vc.listPoke = model
@@ -101,11 +102,11 @@ extension PokeListViewController: UICollectionViewDelegateFlowLayout, UICollecti
         if let pokemon = self.listPoke?.results[indexPath.row],
            let pokemonDetailVC = storyboard.instantiateViewController(withIdentifier: PokeDetailController.identifier) as? PokeDetailController {
             
-            pokemonDetailVC.detailUrl = pokemon.url
+            pokemonDetailVC.listPoke = pokemon
             self.navigationController?.pushViewController(pokemonDetailVC, animated: true)
         }
     }
-    
+}
     
     
     
@@ -128,4 +129,4 @@ extension PokeListViewController: UICollectionViewDelegateFlowLayout, UICollecti
     //
     //}
     
-}
+

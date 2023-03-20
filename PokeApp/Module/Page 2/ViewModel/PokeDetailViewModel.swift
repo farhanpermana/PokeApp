@@ -13,7 +13,7 @@ protocol moveToPokemonDetail {
 
 protocol ApiServiceDetailProtocol {
     var urlString: String { get set }
-    var bindPokeData: ((PokeDetailModel?) -> ())? { get set }
+    var bindPokeData: ((PokemonDetailsModel?) -> ())? { get set }
     
     func fetchPoke()
 }
@@ -21,9 +21,9 @@ protocol ApiServiceDetailProtocol {
 class PokeDetailViewModel: ApiServiceDetailProtocol {
     private var apiService: ApiService?
     var urlString: String
-    var data: PokeDetailModel?
+    var data: PokemonDetailsModel?
     
-    var bindPokeData: ((PokeDetailModel?) -> ())?
+    var bindPokeData: ((PokemonDetailsModel?) -> ())?
     init(urlString: String, apiService: ApiServiceProtocol) {
         self.urlString = urlString
         self.apiService = apiService as?
@@ -35,7 +35,7 @@ class PokeDetailViewModel: ApiServiceDetailProtocol {
     }
     
     func fetchPoke() {
-        self.apiService?.callApi(model: PokeDetailModel.self, completion: { response in
+        self.apiService?.callApi(model: PokemonDetailsModel.self, completion: { response in
             switch response {
             case .success(let success):
                 self.bindPokeData?(success)

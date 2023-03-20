@@ -16,16 +16,22 @@ enum sectionDetail: Int {
 class PokeDetailController: UIViewController {
     
     static let identifier = "PokeDetailController"
-
+    
     @IBOutlet weak var detailTableView: UITableView!
     
     var listPoke: ResultModel?
+    
+    var pokeDetailViewModel: PokeDetailViewModel?
+    var detailPoke: PokemonDetailsModel?
+    
+    
     var detailUrl: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCell()
-
+        setupDetailViewModel()
+        
     }
     
     func registerCell() {
@@ -37,8 +43,25 @@ class PokeDetailController: UIViewController {
         detailTableView.delegate = self
         detailTableView.dataSource = self
     }
-
-
+    
+    func setupDetailViewModel() {
+        self.pokeDetailViewModel = PokeDetailViewModel(urlString: listPoke?.url ?? "", apiService: ApiService())
+        
+        
+        self.pokeDetailViewModel?.bindPokeData = { detailPokemon in
+            if let detailPokemon = detailPokemon {
+                DispatchQueue.main.async {
+                    self.detailPoke = detailPokemon
+                }
+                
+                DispatchQueue.main.async {
+                    self.detailTableView.reloadData()
+                }
+            }
+        }
+        
+    }
+    
 }
 
 extension PokeDetailController: UITableViewDelegate, UITableViewDataSource {
@@ -62,7 +85,7 @@ extension PokeDetailController: UITableViewDelegate, UITableViewDataSource {
         default:
             return 0
         }
-    
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -73,17 +96,26 @@ extension PokeDetailController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             
+            cell.pokeName.text = detailPoke?.name
+            cell.pokeHP.text = "\(detailPoke?.experience ?? 0)"
+            
             return cell
         case .pokeImg:
             guard let cell = detailTableView.dequeueReusableCell(withIdentifier: PokeImageTableCell.identifier, for: indexPath) as? PokeImageTableCell else {
                 return UITableViewCell()
             }
+            cell.imgView.sd_setImage(with: URL(string: detailPoke?.sprites.frontDefault ?? ""), completed: nil)
+            
             
             return cell
         case .attack:
             guard let cell = detailTableView.dequeueReusableCell(withIdentifier: QuickAttackLabelTableCell.identifier, for: indexPath) as? QuickAttackLabelTableCell else {
                 return UITableViewCell()
             }
+            
+            cell.attackLabel.text = detailPoke?.moves[0].move.name
+            // show attackvalue from stat
+            cell.attackValue.text = "\(detailPoke?.stats[0].baseStat ?? 0)"
             
             return cell
         default:
