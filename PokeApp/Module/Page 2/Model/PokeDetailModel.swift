@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: -- Unused Model--
+// MARK: -- Unused Model --
 
 struct PokeDetailModel: Codable {
     var id: Int

@@ -19,18 +19,21 @@ struct PokemonDetailsModel: Codable{
         case id, name, moves, sprites, stats
         case experience = "base_experience"
     }
-
+    
 }
- struct MoveElement: Codable {
+
+struct MoveElement: Codable {
     let move: StatClass
 }
- struct StatClass: Codable {
-     let name: String
-     let url: String
- }
+
+struct StatClass: Codable {
+    let name: String
+    let url: String
+}
+
 struct Sprites: Codable {
     let frontDefault: String
-
+    
     enum CodingKeys: String, CodingKey {
         case frontDefault = "front_default"
     }
@@ -39,7 +42,7 @@ struct Sprites: Codable {
 struct Stat: Codable {
     let baseStat: Int
     let stat: StatClass
-
+    
     enum CodingKeys: String, CodingKey {
         case baseStat = "base_stat"
         case stat

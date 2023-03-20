@@ -10,7 +10,7 @@ import UIKit
 class PokeHeaderCell: UITableViewCell {
     
     static let identifier = "PokeHeaderCell"
-
+    
     @IBOutlet weak var pokeName: UILabel!
     
     @IBOutlet weak var pokeHP: UILabel!
@@ -19,10 +19,10 @@ class PokeHeaderCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     

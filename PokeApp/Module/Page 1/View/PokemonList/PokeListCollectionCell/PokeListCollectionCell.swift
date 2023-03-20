@@ -10,7 +10,7 @@ import UIKit
 class PokeListCollectionCell: UICollectionViewCell {
     
     static let identifier = "PokeListCollectionCell"
-
+    
     @IBOutlet weak var imgView: UIImageView!
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -32,19 +32,19 @@ class PokeListCollectionCell: UICollectionViewCell {
     
     
     
-//    func setupData(model: PokeModel) {
-//        titleLabel.text = model.name
-//    
-//        let url = URL(string: model.urlPoke)
-//        DispatchQueue.global().async {
-//            let data = try? Data(contentsOf: url!)
-//            
-//            DispatchQueue.main.async {
-//                self.imgView.image = UIImage(data: data!)
-//            }
-//        }
-//    }
+    //    func setupData(model: PokeModel) {
+    //        titleLabel.text = model.name
+    //    
+    //        let url = URL(string: model.urlPoke)
+    //        DispatchQueue.global().async {
+    //            let data = try? Data(contentsOf: url!)
+    //            
+    //            DispatchQueue.main.async {
+    //                self.imgView.image = UIImage(data: data!)
+    //            }
+    //        }
+    //    }
     
-
-
+    
+    
 }

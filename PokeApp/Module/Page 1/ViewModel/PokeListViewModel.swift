@@ -43,7 +43,7 @@ class PokeListViewModel: ApiServicePokeProtocol {
         })
     }
     
-//    func numberOfRowsInSection() -> Int {
-//        return self.data?.count ?? 0
-//    }
+    //    func numberOfRowsInSection() -> Int {
+    //        return self.data?.count ?? 0
+    //    }
 }

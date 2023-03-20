@@ -11,6 +11,7 @@ enum sectionDetail: Int {
     case header = 0
     case pokeImg = 1
     case attack = 3
+    case desc
 }
 
 class PokeDetailController: UIViewController {
@@ -70,7 +71,7 @@ extension PokeDetailController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -81,7 +82,7 @@ extension PokeDetailController: UITableViewDelegate, UITableViewDataSource {
         case .pokeImg:
             return 200
         case .attack:
-            return 100
+            return 50
         default:
             return 0
         }
@@ -104,7 +105,7 @@ extension PokeDetailController: UITableViewDelegate, UITableViewDataSource {
             guard let cell = detailTableView.dequeueReusableCell(withIdentifier: PokeImageTableCell.identifier, for: indexPath) as? PokeImageTableCell else {
                 return UITableViewCell()
             }
-            cell.imgView.sd_setImage(with: URL(string: detailPoke?.sprites.frontDefault ?? ""), completed: nil)
+            cell.imgView.sd_setImage(with: URL(string: detailPoke?.sprites.frontDefault ?? ""), placeholderImage: UIImage(named: "baso"), completed: nil)
             
             
             return cell

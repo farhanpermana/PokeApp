@@ -10,7 +10,7 @@ import UIKit
 class PokeImageTableCell: UITableViewCell {
     
     static let identifier = "PokeImageTableCell"
-
+    
     @IBOutlet weak var bgView: UIView!
     
     
@@ -20,10 +20,10 @@ class PokeImageTableCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
