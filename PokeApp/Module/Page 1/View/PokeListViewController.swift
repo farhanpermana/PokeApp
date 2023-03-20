@@ -63,7 +63,10 @@ class PokeListViewController: UIViewController, moveToPokemonDetail {
 
 extension PokeListViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return listPoke?.results.count ?? 0
+        let count = listPoke?.results.count ?? 0
+        print("count:", count)
+        return count
+        
     }
     
     func setupPokeApi() {
@@ -91,12 +94,14 @@ extension PokeListViewController: UICollectionViewDelegateFlowLayout, UICollecti
         self.moveToPokemonDetailDelegate?.moveToDetailPokemon(model: listPoke?.results[indexPath.row] ?? ResultModel(name: "", url: ""))
         return cell
     }
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        let count = self.listPoke?.results.count ?? 0
-        print("count ", count
-        )
-        return count
-    }
+    
+//    func numberOfSections(in collectionView: UICollectionView) -> Int {
+//        let count = self.listPoke?.results.count ?? 0
+//        print("count ", count
+//        )
+//        return count
+//    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let pokemon = self.listPoke?.results[indexPath.row],
