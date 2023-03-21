@@ -4,7 +4,7 @@ Simple pokemon list from pokeapi.co
 
 ## Usage
 
-open .xcodeproj file with Xcode 14. 
+Open .xcodeproj file with Xcode 14. 
 This project may not compatible with Xcode 13 or lower.
 
 ## Contributing
