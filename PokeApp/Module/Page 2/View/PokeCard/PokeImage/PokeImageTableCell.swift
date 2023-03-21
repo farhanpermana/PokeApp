@@ -16,6 +16,10 @@ class PokeImageTableCell: UITableViewCell {
     
     @IBOutlet weak var imgView: UIImageView!
     
+    func setupCell() {
+        bgView.layer.backgroundColor = UIColor.yellow.cgColor
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

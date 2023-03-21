@@ -11,11 +11,11 @@ class QuickAttackLabelTableCell: UITableViewCell {
     
     static let identifier = "QuickAttackLabelTableCell"
     
-    @IBOutlet weak var attackLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     
-    @IBOutlet weak var attackValue: UILabel!
+    @IBOutlet weak var valueLabel: UILabel!
     
-    @IBOutlet weak var descAttack: UILabel!
+    @IBOutlet weak var descLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

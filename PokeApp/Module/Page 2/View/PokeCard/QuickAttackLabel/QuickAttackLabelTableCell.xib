@@ -46,9 +46,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="attackLabel" destination="KVi-fH-SbK" id="ILh-L2-WS5"/>
-                <outlet property="attackValue" destination="xIh-zb-3Wc" id="lhW-Xu-xwY"/>
-                <outlet property="descAttack" destination="voB-sT-aNn" id="Hkl-n6-QsD"/>
+                <outlet property="descLabel" destination="voB-sT-aNn" id="9BL-Dn-c7X"/>
+                <outlet property="titleLabel" destination="KVi-fH-SbK" id="Ztx-hs-CJM"/>
+                <outlet property="valueLabel" destination="xIh-zb-3Wc" id="XBW-fQ-N1f"/>
             </connections>
             <point key="canvasLocation" x="42.748091603053432" y="46.83098591549296"/>
         </tableViewCell>

@@ -10,29 +10,67 @@ import Foundation
 struct PokemonDetailsModel: Codable{
     let id: Int
     let name: String
-//    let experience: Int
-    let moves: [MoveElement]
+    //    let experience: Int
+    var moves: [MoveElement]
     let sprites: Sprites
     let stats: [Stat]
+    //    let details: MoveDetailsModel
     
     enum CodingKeys: String, CodingKey {
         case id, name, moves, sprites, stats
-//        case experience = "base_experience"
+        //        case experience = "base_experience"
     }
     
 }
 
 struct MoveElement: Codable {
-    let move: StatClass
+    var move: MovesModel
     
+    enum CodingKeys: String, CodingKey {
+        case move
+    }
+}
+
+
+struct MovesModel: Codable {
+    let name: String
+    let url: String
+    var detail: MoveDetailsModel?
 }
 
 struct StatClass: Codable {
     let name: String
     let url: String
+    //    var detail: MoveDetailsModel
+    
+    
 }
 
+//struct Sprites: Codable {
+//    let frontDefault: String
+//
+//    enum CodingKeys: String, CodingKey {
+//        case frontDefault = "front_default"
+//    }
+//}
+
 struct Sprites: Codable {
+    let other: Other
+    
+    enum codingKeys: String, CodingKey {
+        case other
+    }
+}
+
+struct Other: Codable {
+    let home: Home
+    
+    enum CodingKeys: String, CodingKey {
+        case home = "home"
+    }
+}
+
+struct Home: Codable {
     let frontDefault: String
     
     enum CodingKeys: String, CodingKey {
@@ -55,18 +93,31 @@ struct MoveDetailsModel: Codable {
     let accuracy: Int?
     let power: Int?
     let pp: Int
-    let type: StatClass
     let effectEntries: [EffectEntry]
     
     
     enum CodingKeys: String, CodingKey {
-        case accuracy, power, pp, type
+        case accuracy, power, pp
         case effectEntries = "effect_entries"
-    
+        
+    }
+    var effectString: String? {
+        let firstEntry = effectEntries[0]
+        let shortEffect = firstEntry.shortEffect != nil ? firstEntry.shortEffect : nil
+        let effect = firstEntry.effect != nil ? firstEntry.effect : shortEffect
+        return effect
     }
 }
 
+
+
 struct EffectEntry: Codable {
     let effect: String
-    let language: String
+    let shortEffect: String
+    
+    enum CodingKeys: String, CodingKey {
+        case effect
+        case shortEffect = "short_effect"
+    }
+    
 }

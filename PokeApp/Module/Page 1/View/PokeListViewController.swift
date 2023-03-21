@@ -30,11 +30,11 @@ class PokeListViewController: UIViewController, moveToPokemonDetail {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
 //        layout.itemSize = CGSize(width: 300, height: 200)
-        layout.sectionInset = UIEdgeInsets(top: 8, left: 12, bottom: 8, right: 12)
+        layout.sectionInset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
         layout.minimumInteritemSpacing = 12
         let screenSize = self.view.bounds.size.width - layout.sectionInset.left -
         layout.sectionInset.right - layout.minimumInteritemSpacing
-        layout.itemSize = CGSize(width: screenSize / 2.5, height: 180)
+        layout.itemSize = CGSize(width: screenSize / 2, height: 180)
 //        layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
       return layout
     }
@@ -54,6 +54,13 @@ class PokeListViewController: UIViewController, moveToPokemonDetail {
         
         delegate = self
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+        title = "Pokemon List"
+    
+    
+    }
     // unused transition func (maybe)
     func moveToDetailPokemon(model: ResultModel) {
         let vc = PokeDetailController()
@@ -72,7 +79,7 @@ extension PokeListViewController: UICollectionViewDelegateFlowLayout, UICollecti
     }
     
     func setupPokeApi() {
-        self.pokeListViewModel = PokeListViewModel(urlString: "https://pokeapi.co/api/v2/pokemon", apiService: ApiService())
+        self.pokeListViewModel = PokeListViewModel(urlString: "https://pokeapi.co/api/v2/pokemon?offset=0&limit=100", apiService: ApiService())
         
         self.pokeListViewModel?.bindPokeData = { listModel in
             if let listData = listModel {
@@ -90,7 +97,7 @@ extension PokeListViewController: UICollectionViewDelegateFlowLayout, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PokeListCollectionCell.identifier, for: indexPath) as? PokeListCollectionCell else { return UICollectionViewCell()}
         cell.titleLabel.text = self.listPoke?.results[indexPath.row].name
-        cell.imgView.sd_setImage(with: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(indexPath.row + 1).png"))
+        cell.imgView.sd_setImage(with: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(indexPath.row + 1).png"))
         //        cell.setupData(model: listPoke)
         //        cell.moveToPokemonDetailDelegate = self.delegate
         self.moveToPokemonDetailDelegate?.moveToDetailPokemon(model: listPoke?.results[indexPath.row] ?? ResultModel(name: "", url: ""))

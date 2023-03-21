@@ -10,8 +10,9 @@ import UIKit
 enum sectionDetail: Int {
     case header = 0
     case pokeImg = 1
-    case attack = 3
-    case desc = 4
+    case attack = 2
+    case agility = 3
+    
 }
 
 class PokeDetailController: UIViewController {
@@ -21,6 +22,8 @@ class PokeDetailController: UIViewController {
     @IBOutlet weak var detailTableView: UITableView!
     
     var listPoke: ResultModel?
+    var listDetail: StatClass?
+    
     
     var pokeDetailViewModel: PokeDetailViewModel?
     var detailPoke: PokemonDetailsModel?
@@ -32,7 +35,7 @@ class PokeDetailController: UIViewController {
         super.viewDidLoad()
         registerCell()
         setupDetailViewModel()
-        
+        //        setupMovesViewModel()
     }
     
     func registerCell() {
@@ -62,6 +65,24 @@ class PokeDetailController: UIViewController {
         
     }
     
+    //    func setupMovesViewModel() {
+    //        self.pokeDetailViewModel = PokeDetailViewModel(urlString: listDetail?.url ?? "", apiService: ApiService())
+    //
+    //
+    //
+    //              self.pokeDetailViewModel?.bindPokeData = { detailPokemon in
+    //                  if let detailPokemon = detailPokemon {
+    //                      DispatchQueue.main.async {
+    //                          self.detailPoke = detailPokemon
+    //                      }
+    //
+    //                      DispatchQueue.main.async {
+    //                          self.detailTableView.reloadData()
+    //                      }
+    //                  }
+    //              }
+    //    }
+    
 }
 
 extension PokeDetailController: UITableViewDelegate, UITableViewDataSource {
@@ -81,6 +102,8 @@ extension PokeDetailController: UITableViewDelegate, UITableViewDataSource {
         case .pokeImg:
             return 200
         case .attack:
+            return 100
+        case .agility:
             return 100
         default:
             return 0
@@ -105,7 +128,7 @@ extension PokeDetailController: UITableViewDelegate, UITableViewDataSource {
             guard let cell = detailTableView.dequeueReusableCell(withIdentifier: PokeImageTableCell.identifier, for: indexPath) as? PokeImageTableCell else {
                 return UITableViewCell()
             }
-            cell.imgView.sd_setImage(with: URL(string: detailPoke?.sprites.frontDefault ?? ""), placeholderImage: UIImage(named: "baso"), completed: nil)
+            cell.imgView.sd_setImage(with: URL(string: detailPoke?.sprites.other.home.frontDefault ?? ""), placeholderImage: UIImage(named: "baso"), completed: nil)
             
             
             return cell
@@ -114,16 +137,34 @@ extension PokeDetailController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             
-            cell.attackLabel.text = detailPoke?.moves[0].move.name
-          
-            cell.attackValue.text = "\(detailPoke?.stats[1].baseStat ?? 0)+"
+            cell.titleLabel.text = detailPoke?.moves[0].move.name
+            // show base attack value
+            cell.valueLabel.text = "\(detailPoke?.stats[1].baseStat ?? 0)+"
+            // show effectentries
+            cell.descLabel.text = detailPoke?.moves[0].move.detail?.effectEntries[0].effect
             
             
+            
+            // display moves effect
+            // cell.descAttack.text = detailPoke?.details.effectEntries[0].effect
             return cell
+            
+        case .agility:
+            guard let cell = detailTableView.dequeueReusableCell(withIdentifier: QuickAttackLabelTableCell.identifier, for: indexPath) as? QuickAttackLabelTableCell else {
+                return UITableViewCell()
+            }
+            
+            
+            cell.titleLabel.text = detailPoke?.moves[1].move.name
+            cell.valueLabel.text = "\(detailPoke?.stats[2].baseStat ?? 0)+"
+            // display moves effect
+            // cell.descAttack.text = detailPoke?.details.effectEntries[0].effect
+            return cell
+            
         default:
             return UITableViewCell()
         }
+        //        return UITableViewCell()
     }
-    
     
 }
