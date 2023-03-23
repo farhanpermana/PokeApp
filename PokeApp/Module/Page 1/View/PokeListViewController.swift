@@ -84,7 +84,7 @@ extension PokeListViewController: UICollectionViewDelegateFlowLayout, UICollecti
         self.pokeListViewModel?.bindPokeData = { listModel in
             if let listData = listModel {
                 self.listPoke = listData
-                self.collectionView.backgroundColor = .white
+                print("bind", self.listPoke?.results.count ?? 0)
             } else {
                 self.collectionView.backgroundColor = .red
             }
